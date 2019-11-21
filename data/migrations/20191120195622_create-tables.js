@@ -44,7 +44,7 @@ exports.down = function(knex) {
 	  knex.schema
 	  	.dropTableIfExists('zoo_animals')
 	  	.dropTableIfExists('animals')
-	  	.dropTableIfExists('zoos')
 	  	.dropTableIfExists('species')
+	  	.dropTableIfExists('zoos')
   )
 };
