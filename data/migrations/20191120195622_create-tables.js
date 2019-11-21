@@ -16,22 +16,35 @@ exports.up = function(knex) {
 		  table.integer('species_id')
 			.unsigned()
 			.notNullable()
-			.references('species.id'); // References the ID in the Species table
+			.references('species.id')
+			.onDelete('CASCADE')
+			.onUpdate('CASCADE');
+			 // References the ID in the Species table
 	  })
 	  .createTable('zoo_animals', table => {
 		table.integer('zoo_id')
 			.unsigned()
 			.notNullable()
-			.references('zoos.id');
-		table.integer('animal')
+			.references('zoos.id')
+			.onDelete('CASCADE')
+			.onUpdate('CASCADE');
+		table.integer('animal_id')
 			.unsigned()
 			.notNullable()
-			.references('animals.id');
+			.references('animals.id')
+			.onDelete('CASCADE')
+			.onUpdate('CASCADE');
 		table.primary(["zoo_id", "animal_id"])
 	  })
   )
 };
 
 exports.down = function(knex) {
-  
+  return (
+	  knex.schema
+	  	.dropTableIfExists('zoo_animals')
+	  	.dropTableIfExists('animals')
+	  	.dropTableIfExists('zoos')
+	  	.dropTableIfExists('species')
+  )
 };
