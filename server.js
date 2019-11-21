@@ -47,7 +47,7 @@ server.post('/api/animals', (req, res) => {
     });
   })
   .catch(error => {
-    res.status(500).json(error);
+    res.status(500).json({ error: error.message});
   });
 });
 
@@ -64,7 +64,7 @@ server.delete('/api/species/:id', (req, res) => {
     }
   })
   .catch(error => {
-    res.status(500).json(error);
+    res.status(500).json({ error: error.message});
   });
 });
 

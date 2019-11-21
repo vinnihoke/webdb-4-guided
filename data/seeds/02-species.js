@@ -10,6 +10,7 @@ exports.seed = function(knex, Promise) {
     { species_name: "Minotaur" }, 
     { species_name: "Raccoon" },
     { species_name: 'Flamingo' },
-    { species_name: 'Kookaburra' }
+    { species_name: 'Kookaburra' },
+    { species_name: 'Octopus' }
   ]);
 };
